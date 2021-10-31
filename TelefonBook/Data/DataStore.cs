@@ -9,14 +9,13 @@ namespace TelefonBook.Data
 {
     public class DataStore
     {
-        private static List<Person> _personList = new List<Person>();
-        public string _seperator = "------------------------------";
-
-        public void InitList()
+        private static List<Person> _personList = new List<Person>()
         {
-            _personList.Add(new Person { Name = "Sally Mcquade", Tel = "0123456789" });
-            _personList.Add(new Person { Name = "Gemma Robertson", Tel = "9876543210" });
-        }
+            new Person { Name = "Lei", Tel = "0123456789" },
+            new Person { Name = "Daniella", Tel = "9876543210" },
+            new Person { Name = "Ahmad", Tel = "321987654" },
+            new Person { Name = "Simon", Tel = "654987321" }
+        };
 
         public void AddPerson(Person newPerson)
         {
@@ -25,26 +24,12 @@ namespace TelefonBook.Data
 
         public void RemovePerson(int removeId)
         {
-            _personList.RemoveAt(removeId-1);
-            ReorderList();
-        }
-
-        public void PersonList()
-        {
-            var orderNum = 1;
-            foreach (Person person in _personList)
-            {
-
-                Console.WriteLine(orderNum++);
-                Console.WriteLine(String.Format("{0,-15}{1,-50}", "Name:", (person.Name)));
-                Console.WriteLine(String.Format("{0,-15}{1,-50}", "Telephone #:", (person.Tel)));
-                Console.WriteLine(_seperator);
-            }
+            _personList.RemoveAt(removeId - 1);
         }
 
         public Person GetPerson(int id)
         {
-            return _personList[id-1];
+            return _personList[id - 1];
         }
 
         public void ReorderList()
@@ -55,6 +40,11 @@ namespace TelefonBook.Data
                 _newPersonList.Add(person);
             }
             _personList = _newPersonList;
+        }
+
+        public List<Person> GetPersonList()
+        {
+            return _personList;
         }
     }
 }

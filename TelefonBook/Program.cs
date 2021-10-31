@@ -11,19 +11,15 @@ namespace TelefonBook
     {
         static void Main(string[] args)
         {
-            DataStore dataStore = new DataStore();
             Manager manager = new Manager();
-            dataStore.InitList();
-            bool isRunning = true;
-            while (isRunning)
+            
+            while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Telephone Book");
-                Console.WriteLine(dataStore._seperator);
-                dataStore.PersonList();
+                Console.WriteLine(manager._title);
+                manager.GetPersonList();
                 manager.MainMenu();
             }
-
         }
     }
 }
