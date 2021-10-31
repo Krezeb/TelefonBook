@@ -20,7 +20,6 @@ namespace TelefonBook.Data
             bool success = int.TryParse(Console.ReadLine(), out var input);
             if (success)
             {
-
                 if (input == 1)
                 {
                     CreatePerson();
@@ -153,7 +152,6 @@ namespace TelefonBook.Data
 
             foreach (Person person in tempList)
             {
-
                 Console.WriteLine(orderNum++);
                 Console.WriteLine(String.Format("{0,-15}{1,-50}", "Name:", (person.Name)));
                 Console.WriteLine(String.Format("{0,-15}{1,-50}", "Telephone #:", (person.Tel)));
